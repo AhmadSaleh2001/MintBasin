@@ -1,0 +1,58 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+    <div class="Ratings">
+        <div class="container">
+            <div class="Items">
+                <% 
+                    Data.forEach(Item => {
+                        %>
+                        <div class="Item">
+                            <img src="/public/Images/RatingImage.jpg" class="ImgRating" alt="">
+                            <h4>
+                                <div><%=Item.Name%></div>
+                                <%
+                                    if(User && User.IsAdmin)
+                                    {
+                                        %>
+                                        <a href="/Rating/Delete/<%=Item._id%>"><i class="fas fa-trash"></i></a>
+                                        <%
+                                    }
+                                %>
+                            </h4>
+                            <div class="Stars">
+                                <%
+                                    for(var i=1;i<=Item.Rating;i++)
+                                    {
+                                        %>
+                                            <i class="fas fa-star"></i>
+                                        <%
+                                    }
+                                    for(var i=1;i<=5 - Item.Rating;i++)
+                                    {
+                                        %>
+                                            <i class="far fa-star"></i>
+                                        <%
+                                    }
+                                %>
+                            </div>
+                            <p>
+                                <%= Item.FeedBack %>                                
+                            </p>
+                        </div>
+
+                        <%
+                    })    
+                %>  
+            </div>
+            <a href="/Rating/Add" class="MyBtn">اضافة تقييم</a>
+        </div>
+    </div>
+
+
+    <%- include("../partials/Footer.ejs") %> 

@@ -1,0 +1,37 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+     <div class="SignIn">
+        <div class="MyTitle">
+            <h2>تعديل منشور</h2>
+        </div>
+        <div class="container">
+            <form action="/Timeline/Update/<%=Data._id %>/<%=Data.UserId%>" method="POST" enctype="multipart/form-data">
+                <div class="Item">
+                    <h3>المحتوى</h3>
+                    <textarea name="Description" id="" cols="30" rows="10" required>
+                        <%= Data.Description %>
+                    </textarea>
+                </div>
+                <div>
+                    <h3>الصورة</h3>
+                    <img src="/public/Uploads/Posts/<%=Data.Image%>" alt="" style="width:300px" class="ImageToChange" />
+                    <input type="file" name="Image" id="" class="ChangedInput">
+                </div>
+                <input type="hidden" name="OldImage" value="<%=Data.Image%>" id="">
+                <button>تعديل</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 

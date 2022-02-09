@@ -1,0 +1,41 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+    <div class="Data">
+        <table border="1">
+            <tr>
+                <th>الاسم</th>
+                <th>الصورة</th>
+                <th>عمليات</th>
+            </tr>
+
+            <% 
+                Data.forEach(Item =>{
+                    if(Item._id != User._id)
+                    {
+                        %>
+                            <tr>
+                                <td><%=Item.Username %></td>
+                                <td>
+                                    <img src="/public/Uploads/Users/<%=Item.Picture %>" alt="" class="ImgSponsor" />
+                                </td>
+                                <td class="Operations">
+                                    <a href="/User/Update/<%=Item._id %>" class="Update MyBtn">تعديل</a>
+                                    <a href="/User/Delete/<%=Item._id %>" class="Delete MyBtn">حذف</a>
+                                </td>
+                            </tr>
+                        <%
+                    }
+                })
+            %> 
+            
+        </table>
+    </div>  
+
+
+    <%- include("../partials/Footer.ejs") %> 

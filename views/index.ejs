@@ -1,0 +1,103 @@
+     <!-- Start Header -->
+     <%- include("./partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("./partials/Navbar.ejs") %> 
+    <!-- End Navbar -->
+    
+    
+    <!-- Start Landing -->
+    <div class="Landing">
+        <div class="container">
+            <div class="Right">
+                <h1>مرحبا في عالم حوض النعنع !</h1>
+                <p>اهلا يا عابط</p>
+            </div>
+            <div class="Left">
+                <img src="/public/Images/Nan3.jpg" alt="">
+            </div>
+        </div>
+        <a class="fas fa-angle-double-down fa-2x IconLanding" href="#Features"></a>
+    </div>
+    <!-- End Landing -->
+
+
+    <!-- Start Features -->
+        <div class="Features" id="Features">
+            <div class="MyTitle">
+                <h2>المميزات</h2>
+            </div>
+            <div class="container">
+                <div class="Item">
+                    <i class="far fa-smile fa-3x text-dark" aria-hidden="true"></i>
+                    <h3>اسرع</h3>
+                    <p>بأستخدام هذا الموقع يصبح حساب معدلك النعنعي اسرع</p>
+                </div>
+                
+                <div class="Item">
+                    <i class="far fa-arrow-alt-circle-up fa-3x text-success" aria-hidden="true" style="color:var(--MainColor)"></i>
+                    <h3>تفائل</h3>
+                    <p>بعد رؤية تقييمك النعنعي لا تستلم وحاول الوصول الى التقييم البقدونسي</p>
+                </div>
+
+                <div class="Item">
+                    <i class="fas fa-star fa-3x text-warning" aria-hidden="true" style="color:yellow"></i>
+                    <h3>اصبح بأمكانك تقييم الموقع</h3>
+                    <p>سارع <a href="/Rating">بتقييم</a> الموقع لتصبح عضو نعنعي</p>
+                </div>
+                
+                <div class="Item">
+                    <i class="fas fa-share-alt fa-3x text-primary" aria-hidden="true" style="color:blue"></i>
+                    <h3>شارك الموقع مع اصدقاءك</h3>
+                </div>
+            </div>
+        </div>
+    <!-- End Features -->
+
+
+
+    <!-- Start Members -->
+        <div class="Members">
+            <div class="MyTitle">
+                <h2>مؤسسين الموقع</h2>
+            </div>
+
+            <div class="container">
+            <% 
+                Sponsors.forEach(Item => {
+                    %>
+                        <div class="Item">
+                            <div>
+                                <img src="/public/Uploads/Sponsors/<%= Item.Image %>" alt="" class="Img">
+                            </div>
+                            <div class="Text">
+                                <h3><%= Item.Name %></h3>
+                                <h4><%= Item.Title %></h4>
+                                <p><%= Item.Description %></p>
+                                <ul>
+                                    <a href="<%= Item.Facebook %>" target="_blank" class="fab fa-facebook-square fa-2x"></a>
+                                    <a href="<%= Item.LinkedIn %>" target="_blank" class="fab fa-linkedin fa-2x"></a>
+                                    <a href="<%= Item.Instagram %>" target="_blank" class="fab fa-instagram-square fa-2x"></a>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <%
+                    })
+                    
+                    %> 
+            </div>
+        </div>
+    <!-- End Members -->
+    
+    
+    <!-- <div class="MyTitle">
+        <h2>المميزات</h2>
+    </div> -->
+    
+    
+    <!-- Start Footer -->
+    <%- include("./partials/Footer.ejs") %> 
+    <!-- End Footer -->
+    

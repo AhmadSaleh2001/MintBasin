@@ -1,0 +1,45 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+     
+
+     <div class="SignIn">
+        <% 
+            if(messages.error)
+            {
+                %>
+                    <h3 class="ErrorLogin"><%= messages.error %></h3>
+                <%
+            }
+        %> 
+        <div class="MyTitle">
+            <h2>تسجيل الدخول</h2>
+        </div>
+        <div class="container">
+            <form action="/User/Login" method="POST">
+                <div class="Item">
+                    <h3>البريد الالكتروني</h3>
+                    <input type="text" name="Email" id="" required>
+                </div>
+
+                <div class="Item">
+                    <h3>كلمة المرور</h3>
+                    <input type="password" name="Password" id="" required>
+                </div>
+
+                <button>تسجيل الدخول</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 

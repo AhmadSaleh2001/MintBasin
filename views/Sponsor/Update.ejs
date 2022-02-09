@@ -1,0 +1,61 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+     <div class="SignIn">
+        <div class="MyTitle">
+            <h2>اضافة مساهم</h2>
+        </div>
+        <div class="container">
+            <form action="/Sponsor/Update/<%=Data._id %>" method="POST" enctype="multipart/form-data">
+                <div class="Item">
+                    <h3>الاسم</h3>
+                    <input type="text" name="Name" id="" value="<%= Data.Name %>" required>
+                </div>
+                <div class="Item">
+                    <h3>اللقب</h3>
+                    <input type="text" name="Title" id="">
+                </div>
+
+                <div class="Item">
+                    <h3>الوصف</h3>
+                    <textarea name="Description" id="" cols="30" rows="10" required>
+                        <%= Data.Description %>
+                    </textarea>
+                </div>
+
+                <div class="Item">
+                    <h3>صورة</h3>
+                    <img src="/public/Uploads/Sponsors/<%=Data.Image %>" class="ImageToChange" style="width:200px" alt="">
+                    <input type="file" name="Image" class="ChangedInput" id="">
+                </div>
+
+                <div class="Item">
+                    <h3>Facebook Url</h3>
+                    <input type="text" name="Facebook" value="<%= Data.Facebook %>" id="">
+                </div>
+
+                <div class="Item">
+                    <h3>LinkedIn Url</h3>
+                    <input type="text" name="LinkedIn" value="<%= Data.LinkedIn %>" id="">
+                </div>
+
+                <div class="Item">
+                    <h3>Instagram Url</h3>
+                    <input type="text" name="Instagram" value="<%= Data.Instagram %>" id="">
+                </div>
+                <button>تعديل</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 

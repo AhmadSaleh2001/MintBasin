@@ -1,0 +1,50 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+     <div class="SignIn">
+        <div class="MyTitle">
+            <h2>انشاء حساب نعنعي</h2>
+        </div>
+        <div class="container">
+            <form action="/User/SignIn" method="POST">
+                <div class="Item">
+                    <h3>الاسم</h3>
+                    <input type="text" name="Username" id="" required>
+                </div>
+
+                <div class="Item">
+                    <h3>البريد الالكتروني</h3>
+                    <input type="email" name="Email" id="" required>
+                    <% 
+                        if(ErrorMessage)
+                        {
+                            %>
+                                <span style="color:red">
+                                    <%= ErrorMessage %>
+                                </span>
+                            <%
+                        }
+                    %>
+                </div>
+
+                <div class="Item">
+                    <h3>كلمة المرور</h3>
+                    <input type="password" name="Password" id="" required>
+                </div>
+
+                <button>انشاء حساب</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 

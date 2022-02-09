@@ -1,0 +1,47 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+
+     <div class="SignIn">
+        <div class="MyTitle">
+            <h2>تعديل بياناتك</h2>
+        </div>
+        <div class="container">
+            <form action="/User/Update/Users/<%=Data._id %>" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="OldImage" value="<%= Data.Picture %>" id="">
+                <div class="Item">
+                    <h3>البريد الالكتروني</h3>
+                    <input type="text" name="Email" id="" value="<%= Data.Email%>" required disabled>
+                </div>
+
+                <div class="Item">
+                    <h3>اسم المستخدم</h3>
+                    <input type="text" name="Username" id="" value="<%= Data.Username%>" required>
+                </div>
+
+                <div class="Item">
+                    <h3>كلمة المرور</h3>
+                    <input type="text" name="Password" id="" value="<%= Data.Password%>" required>
+                </div>
+                <div>
+                    <h3>الصورة الشخصية</h3>
+                     <img src="/public/Uploads/Users/<%= Data.Picture %>" class="ImageToChange" alt="" style="width : 200px">
+                     <input type="file" name="Picture" class="ChangedInput" id="">
+                </div>
+
+                <button>تعديل</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 

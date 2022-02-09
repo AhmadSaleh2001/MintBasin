@@ -1,0 +1,39 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+    <div class="Data">
+        <table border="1">
+            <tr>
+                <th>الاسم</th>
+                <th>الصورة</th>
+                <th>عمليات</th>
+            </tr>
+
+            <% 
+                Data.forEach(Item =>{
+                    %>
+                        <tr>
+                            <td><%=Item.Name %></td>
+                            <td>
+                                <img src="/public/Uploads/Sponsors/<%=Item.Image %>" alt="" class="ImgSponsor" />
+                            </td>
+                            <td class="Operations">
+                                <a href="/Sponsor/Update/<%=Item._id %>" class="Update MyBtn">تعديل</a>
+                                <a href="/Sponsor/Delete/<%=Item._id %>" class="Delete MyBtn">حذف</a>
+                            </td>
+                        </tr>
+                    <%
+                })
+            %> 
+            
+        </table>
+        <a href="/Sponsor/Add" class="MyBtn AddSponsor">اضافة مساهم جديد</a>
+    </div>  
+
+
+    <%- include("../partials/Footer.ejs") %> 

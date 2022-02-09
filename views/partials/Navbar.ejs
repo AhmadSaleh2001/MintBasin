@@ -1,0 +1,48 @@
+<div class="Navbar">
+    <div class="container">
+        <div class="Right">
+            <img src="/public/Images/Logo.jpg" alt="">
+            <a href="/">اعرف موقعك في حوض النعنع</a>
+        </div>
+        <ul class="Links">
+            <li><a href="/" class="<%= Url=='/'?'Active':'' %>">الرئيسية</a></li>
+            <li><a href="/Calculate" class="<%= Url=='/Calculate'?'Active':'' %>">حساب المعدل</a></li>
+            <li><a href="/Timeline" class="<%= Url=='/Timeline'?'Active':'' %>">المنشورات</a></li>
+            <li><a href="/Rating" class="<%= Url=='/Rating'?'Active':'' %>">التقييمات</a></li>
+            <% 
+                if(!User)
+                {
+                    %>
+                        <li><a href="/User/Login">تسجيل دخول</a></li>
+                        <li><a href="/User/SignIn">انشاء حساب</a></li>
+                    <%
+                }
+                else
+                {
+                    %>
+                        <li class="DropDown">
+                            <div class="Info">
+                                اهلا &nbsp;<span style="color:var(--MainColor)"><%= User.Username %></span> &nbsp; <img src="/public/Uploads/Users/<%=User.Picture %>" style="width:40px;border-radius:50%"/> &nbsp; <i class="fas fa-arrow-down" style="color:var(--MainColor)"></i> 
+                            </div>
+                            <ul>
+                                <%
+                                    if(User.IsAdmin)
+                                    {
+                                        %>
+                                            <a href="/Sponsor/ManageSponsors">ادارة المساهمين</a>
+                                            <a href="/User/ManageUsers">ادارة المستخدمين</a>
+                                        <%
+                                    }
+                                %>
+                                <a href="/User/Update/<%= User._id%>">تعديل بياناتك</a>
+                                <a href="/User/Logout">تسجيل الخروج</a>
+                            </ul>
+                        </li>
+                    <%
+                }
+            %> 
+
+            
+        </ul>
+    </div>
+</div>

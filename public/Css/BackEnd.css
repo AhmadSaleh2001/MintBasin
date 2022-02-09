@@ -1,0 +1,1232 @@
+*
+{
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+:root
+{
+    --MainColor : rgb(40, 167, 69);
+    --SecondColor : rgb(236, 236, 236);
+}
+html
+{
+    scroll-behavior: smooth;
+}
+body
+{
+    font-family: 'Cairo', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul
+{
+    list-style: none;
+    padding : 0;
+    margin : 0;
+}
+.container
+{
+    
+    padding : 0px 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width:768px) {
+    .container
+    {
+        width:750px;
+    }
+}
+
+@media (min-width:992px) {
+    .container
+    {
+        width:970px;
+    }
+}
+
+@media (min-width:1200px) {
+    .container
+    {
+        width:1170px;
+    }
+}
+
+
+/* Start Navbar */
+.Navbar
+{
+    box-shadow:0px 0px 23px 5px rgb(231, 231, 231);
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+.Navbar .container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar .Right
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+@media (max-width:767px) {
+ .Navbar .Right
+ {
+     width : 100%;
+ }   
+}
+.Navbar .Right img
+{
+    width : 100px;
+    border : 2px solid var(--MainColor);
+    margin-left : 5px;
+}
+
+.Navbar .Right a
+{
+    color : black;
+    font-size: 18px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:767px) {
+    .Navbar .Right a
+    {
+        font-size: 15px;
+    }
+}
+
+.Navbar .Links
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width:767px) {
+    .Navbar .Links
+    {
+        margin-top: 5px;
+        width : 100%;
+        justify-content: center;
+    }
+}
+
+.Navbar .Links > li > a
+{
+    color : black;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding:10px;
+    
+}
+@media (max-width:767px) {
+    .Navbar .Links > li > a
+    {
+        font-size: 13px;
+        padding : 5px;
+    }
+}
+.Navbar .Links > li > a::before
+{
+    content: "";
+    right : -100%;
+    top : 0;
+    position: absolute;
+    width : 100%;
+    height: 3px;
+    background-color: var(--MainColor);
+    transition: 0.3s;
+}
+
+.Navbar .Links > li > a:hover
+{
+    background-color: rgb(250, 250, 250);
+}
+
+.Navbar .Links > li > a:hover::before
+{
+    right : 0;
+}
+
+.Navbar .Links > li > a.Active
+{
+    background-color: rgb(250, 250, 250);
+}
+
+.Navbar .Links > li > a.Active::before
+{
+    right : 0;
+}
+
+.Navbar .DropDown
+{
+    position: relative;
+}
+
+.Navbar .DropDown ul
+{
+    border : 1px solid var(--MainColor);
+    text-align: center;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    padding : 10px;
+    width: 100%;
+    transform: translateY(50px);
+    transition: 0.3s ease-in-out;
+    display: none;
+}
+
+.Navbar .DropDown:hover ul
+{
+    display: block;
+    transform: translateY(0px);
+}
+.Navbar .DropDown ul a
+{
+    color : black;
+    transition: 0.3s;
+    display: block;
+    
+}
+.Navbar .DropDown ul a:hover
+{
+    background-color: var(--MainColor);
+    color : white;
+}
+
+.Navbar .DropDown .Info
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* End Navbar */
+
+/* ################ Index Page ################ */
+
+/* Start Landing */
+.Landing
+{
+    position: relative;
+    height : 533px;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Landing .container
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+@media (max-width:767px) {
+    .Landing .container
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.Landing .container::before
+{
+    content: "";
+    left: 0;
+    top: -130px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: skewY(-10deg);
+    background-color: var(--SecondColor);
+    z-index: -1;
+}
+.Landing .Left img
+{
+    width: 250px;
+    box-shadow: 0 0 5px 5px rgb(216, 216, 216);
+    border-radius: 5px;
+    animation: AnimateLanding 1s ease-in-out 0s infinite alternate none;
+}
+@media (max-width:767px) {
+    .Landing .Left img
+    {
+        margin-top: 20px;
+        width : 150px;
+    }
+}
+.IconLanding
+{
+    color : var(--MainColor);
+    position: absolute;
+    left : 50%;
+    bottom : 10px;
+    transform: translateX(-50%);
+    animation: AnimateArrow 1.2s linear 0s infinite normal none;
+}
+
+@keyframes AnimateLanding {
+    0%
+    {
+        transform: translateY(0px);
+    }
+    100%
+    {
+        transform: translateY(30px);
+    }
+}
+
+@keyframes AnimateArrow {
+    0%
+    {
+        bottom : 50px;
+    }
+    40%
+    {
+        bottom : 10px;
+    }
+    60%
+    {
+        bottom : 25px;
+    }
+    80%
+    {
+        bottom : 10px;
+    }
+    100%
+    {
+        bottom : 25px;
+    }
+}
+/* End Landing */
+
+/* Start MyTitle */
+.MyTitle
+{
+    position: relative;
+    border : 1px solid black;
+    width : 300px;
+    text-align: center;
+    margin: 0px auto 50px auto;
+    z-index: 1;
+    
+}
+.MyTitle h2
+{
+    overflow: hidden;
+}
+.MyTitle h2::before,
+.MyTitle h2::after
+{
+    content : "";
+    position: absolute;
+    background-color: var(--MainColor);
+    top : 50%;
+    width : 15px;
+    height : 15px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+.MyTitle h2::before
+{
+    left : -30px;
+}
+.MyTitle h2::after
+{
+    right : -30px;
+}
+
+.MyTitle:hover
+{
+    border-color: white;
+    color : white;
+    transition: 0.3s;
+    transition-delay: 1.2s;
+}
+.MyTitle:hover h2::before
+{
+    animation: AnimateLeft 1.2s linear 0s 1 normal forwards;
+}
+.MyTitle:hover h2::after
+{
+    animation: AnimateRight 1.2s linear 0s 1 normal forwards;
+}
+@keyframes AnimateLeft {
+    0%
+    {
+        border-radius: 50%;
+        left : -30px;
+        width : 15px;
+        height : 15px;
+    }
+    50%
+    {
+        width : 15px;
+        height : 15px;
+        border-radius: 50%;
+        left : 0px;
+    }
+    100%
+    {
+        left : 0px;
+        border-radius: 0px;
+        width : 50%;
+        height: 100%;
+    }
+}
+
+@keyframes AnimateRight {
+    0%
+    {
+        border-radius: 50%;
+        right : -30px;
+        width : 15px;
+        height : 15px;
+    }
+    50%
+    {
+        width : 15px;
+        height : 15px;
+        border-radius: 50%;
+        right : 0px;
+    }
+    100%
+    {
+        right : 0px;
+        border-radius: 0px;
+        width : 50%;
+        height: 100%;
+    }
+}
+/* End MyTitle */
+
+
+
+/* Start Features */
+.Features
+{
+    padding : 100px 0px;
+    background-color: var(--SecondColor);
+}
+
+.Features .container
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap : 20px;
+}
+
+.Features .Item
+{
+    text-align: center;
+}
+
+/* End Features */
+
+
+
+/* Start Members */
+.Members
+{
+    padding : 100px 0px;
+}
+
+.Members .container
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap : 20px;
+}
+
+.Members .Item
+{
+    position: relative;
+    text-align: center;
+    background-color: rgb(228, 228, 228);
+    padding : 20px 10px;
+    color : black;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px rgb(219, 219, 219);
+    transition: 0.3s ease-in-out;
+}
+
+.Members .Item:hover
+{
+    transform: translateY(-20px);
+}
+
+.Members .Item .Img
+{
+    border-radius: 50%;
+    width : 150px;
+    border : 3px dotted var(--MainColor)
+}
+
+.Members .Item h3
+{
+    color : var(--MainColor)
+}
+
+.Members .Item p
+{
+    margin: 20px 0px;
+}
+
+.Members .Item ul a
+{
+    color : black;
+}
+.Members .Item ul a:hover:nth-child(1)
+{
+    color : #1877f2;
+}
+
+.Members .Item ul a:hover:nth-child(2)
+{
+    color : #0077b5;
+}
+
+.Members .Item ul a:hover:nth-child(3)
+{
+    color : #fd1d1d;
+}
+
+/* End Members */
+
+/* ################ Index Page ################ */
+
+
+
+/* Start Footer */
+.Footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color : white;
+    background-color: var(--MainColor);
+    padding : 30px;
+}
+.Footer span
+{
+    font-size: 18px;
+}
+.Footer > *
+{
+    margin-left: 10px;
+}
+
+.Footer .CreatorAccount
+{
+    color : white;
+    font-weight: bold;
+    font-size: 17px;
+    transition: 0.3s ease-in-out;
+}
+
+.Footer .CreatorAccount:hover
+{
+    color : #1877f2;
+}
+
+/* End Footer */
+
+
+
+/* ################ SignIn Page ################ */
+
+.SignIn
+{
+    padding : 100px 0px;
+}
+
+/* .SignIn .container
+{
+
+} */
+
+.SignIn form
+{
+
+    padding : 10px;
+}
+
+.SignIn form .Item
+{
+    
+    padding : 5px;
+}
+
+.SignIn form .Item h3
+{
+    color : rgb(138, 138, 138);
+}
+
+.SignIn form .Item input
+{
+    outline : none;
+    border : 2px solid rgb(138, 138, 138);
+    padding : 5px 10px;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+.SignIn form .Item input:focus
+{
+    border-color: var(--MainColor);
+    border-radius: 10px 3px 10px 3px;
+}
+
+.SignIn form .Item input ~ *    
+{
+    color : var(--MainColor);
+}
+
+.SignIn form button
+{
+    margin-top: 5px;
+    font : normal bold 14px "Cairo";
+    padding : 5px 20px;
+    border : 1px solid var(--MainColor);
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+.SignIn form button::before
+{
+    transition: 0.3s;
+    content: "";
+    right : -100%;
+    top : 0;
+    width : 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    background-color: var(--MainColor);
+}
+
+.SignIn form button:hover
+{
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    color : white;
+}
+
+.SignIn form button:hover:before
+{
+    right : 0;
+}
+
+.ErrorLogin
+{
+    text-align: center;
+    color : red;
+    padding : 10px;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+/* ################ SignIn Page ################ */
+
+
+
+/* ################ Start Sponsers ################ */
+
+.Data
+{
+    padding : 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.Data table
+{
+    width: 50%;
+}
+.Data table tr
+{
+    transition: 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.Data table th
+{
+    padding : 10px;
+    border-radius: 10px;
+}
+
+.Data table td
+{
+    padding : 10px;
+}
+.Data .ImgSponsor
+{
+    width : 100px;
+}
+@media (max-width:767px) {
+    .Data .ImgSponsor
+    {
+        width : 100px;
+    }
+}
+.Data .Operations
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.MyBtn
+{
+    display: block;
+    color : black;
+    padding : 10px;
+    border : 1px solid black;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    margin-top: 5px;
+}
+.Data .Operations .Update
+{
+    border-color: var(--MainColor);
+}
+
+.Data .Operations .Update:hover
+{
+    background-color: var(--MainColor);
+    color : white
+}
+
+.Data .Operations .Delete
+{
+    border-color: red;
+}
+
+.Data .Operations .Delete:hover
+{
+    background-color: red;
+    color : white
+}
+.AddSponsor
+{
+    margin: 10px;
+    
+}
+.AddSponsor:hover
+{
+    background-color: black;
+    color : white;
+    
+}
+
+
+/* ################ End Sponsers ################ */
+
+
+
+/* ################ Start Rating ################ */
+
+.Ratings
+{
+    padding : 50px;
+    background-color: var(--SecondColor);
+    position: relative;
+}
+
+.Ratings .container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Ratings .Items
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(160px , 1fr));
+    gap:50px 20px;
+    
+}
+
+.Ratings .Item
+{
+    background-color: white;
+    padding : 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.Ratings .Item h4
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Ratings .Item h4 a
+{
+    color : red;
+}
+.Ratings .Item .Stars > i
+{
+    color : yellow;
+}
+
+.Ratings .Item p
+{
+    font-size: 14px;
+}
+
+.Ratings .MyBtn
+{
+    width : 120px;
+}
+
+.Ratings .MyBtn:hover
+{
+    background-color: black;
+    color : white;
+}
+
+.Ratings .ImgRating
+{
+    border-radius: 50%;
+    width : 60px;
+    height: 60px;
+    position: absolute;
+    top : -35px;
+    right : -20px;
+    border : 10px solid var(--SecondColor);
+}
+/* ################ End Rating ################ */
+
+
+
+
+/* ################ Start Calculate ################ */
+.Calculate
+{
+    padding : 100px 10px;
+}
+
+.Calculate .NumberMaterials
+{
+    margin: 20px 0px;
+}
+
+.Calculate .NumberMaterials > h4
+{
+    color : var(--MainColor);
+}
+.Calculate .NumberMaterials > input
+{
+    padding : 5px 10px;
+    outline : none;
+    border : 2px solid rgb(173, 173, 173);
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+.Calculate .NumberMaterials > input:focus
+{
+    border-radius: 10px 0px 10px 0px;
+    border-color: var(--MainColor);
+}
+
+
+.Calculate .Content
+{
+    overflow: auto;
+    padding : 20px;
+}
+
+.Calculate .Content table
+{
+    width: 100%;
+    border : 2px solid var(--MainColor);
+    border-radius: 5px;
+    padding : 5px;
+    overflow: scroll;
+}
+.Calculate .Content table tr
+{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    padding : 10px;
+}
+
+.Calculate .Content table tr.DontCalc
+{
+    background-color: gray;
+}
+
+.Calculate .Content table tr:not(:last-child)
+{
+    border-bottom: 2px solid black;
+}
+
+.Calculate .Content table tr input
+{
+    text-align: center;
+    padding : 5px;
+    outline : none;
+    border : 2px solid var(--MainColor);
+}
+
+.Calculate .Content table tr button
+{
+    padding : 5px 10px;
+    background-color: var(--MainColor);
+    border-radius: 5px;
+    color : white;
+    font-size: 16px;
+    font-weight:bold;
+    outline : none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.Calculate .Content table tr button.DontCalc
+{
+    background-color: white;
+    color : var(--MainColor);
+    border : 2px solid var(--MainColor);
+}
+
+
+.Calculate .Content .CalcAvg
+{
+    padding : 5px 20px;
+    background-color: var(--MainColor);
+    border-radius: 5px;
+    outline : none;
+    border : 1px solid white;
+    cursor: pointer;
+    font-size: 17px;
+    color : white;
+    margin-top: 10px;
+}
+
+.Calculate .Results
+{
+    margin-top : 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.Calculate .Results .Right 
+{
+    
+}
+
+.Calculate .Results .Right .Top > div
+{
+    margin :5px 0px;
+    padding : 10px;
+    font-size: 18px;
+}
+
+.Calculate .Results .Right > div > span
+{
+    color : var(--MainColor);
+    font-weight: bold;
+    font-size: 17px;
+    
+}
+
+.Calculate .Results .Left
+{
+    color : white;
+    padding : 30px;
+    background-color: var(--MainColor);
+    border-radius: 10px;
+}
+
+@media (max-width : 767px) {
+    .Calculate .Results .Left
+    {
+        margin-top: 20px;
+    }
+}
+
+.Calculate .Results .Left > *
+{
+    margin : 10px 0px;
+}
+
+.Calculate .Results .Left ul
+{
+    list-style:decimal
+}
+
+.CumulativeAvg .Item
+{
+    display: flex;
+    padding: 5px;
+}
+
+.CumulativeAvg .Item input
+{
+    outline: none;
+    text-align: center;
+    border : 2px solid rgb(177, 177, 177);
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.CumulativeAvg .Item input:focus
+{
+    box-shadow: 0px 0px 3px 3px var(--MainColor);
+}
+
+/* ################ End Calculate ################ */
+
+
+
+/* ################ Start Timeline ################ */
+
+.Timeline
+{
+    padding : 50px;
+}
+
+.Timeline .container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Timeline .MyForm
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Timeline .MyForm textarea
+{
+    padding : 5px;
+    transition: 0.3s linear;
+    border : 2px solid black;
+}
+
+.Timeline .MyForm textarea:focus
+{
+    outline : none;
+    border-color: var(--MainColor);
+    border-radius: 5px;
+}
+
+.Timeline .MyForm input[type="submit"]
+{
+    cursor: pointer;
+    padding : 5px 20px;
+    margin-top: 5px;
+    font : normal bold 17px "Arial";
+    background-color: white;
+    color : black;
+    border : 2px solid var(--MainColor);
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.Timeline .MyForm input[type="submit"]:hover
+{
+    background-color: var(--MainColor);
+    color : white;
+}
+
+.Timeline .Posts
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap : 20px 0px;
+    margin-top: 10px;
+}
+
+.Timeline .Item
+{
+    padding : 10px;
+    margin-bottom: 10px;
+    border : 2px solid var(--MainColor);
+    border-radius: 5px;
+    background-color: rgb(243, 243, 243);
+    
+}
+
+.Timeline .Item .Header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 5px;
+}
+
+.Timeline .Item .Header > div:first-child
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Timeline .Item .Header img
+{
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.Timeline .Item .Header a
+{
+    color : black;
+}
+
+.Timeline .Item .Header a:hover
+{
+    text-decoration: underline;
+}
+
+.Timeline .Item .Content
+{
+    
+}
+
+.Timeline .Item .Content p
+{
+    max-width: 400px;
+}
+
+.Timeline .Item .Content img
+{
+    width : 300px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.Timeline .NotLoggedIn
+{
+    padding : 10px;
+    border : 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #eed202;
+    color : black;
+}
+.Timeline .NotLoggedIn a
+{
+    color : var(--MainColor);
+}
+
+/* ################ End Timeline ################ */
+
+
+/* ################ Start Not Found ################ */
+.NotFound
+{
+    padding : 100px 0px;
+    text-align: center;
+}
+
+.NotFound .container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotFound h3
+{
+    color : red;
+    margin-bottom: 20px;
+}
+.NotFound img
+{
+    max-width: 100%;
+    border : 1px solid red;
+    border-radius: 5px;
+}
+
+.NotFound a
+{
+    display: block;
+    color : black;
+    text-decoration: none;
+    padding : 10px;
+    border : 2px solid var(--MainColor);
+    width : 200px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+/* ################ End Not Found ################ */
+
+
+/* ################ Start User Profile ################ */
+
+.Profile .container > .Header
+{
+    padding: 30px;
+    text-align: center;
+    background-color: var(--SecondColor);
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 3px rgb(223, 223, 223);
+    margin-bottom: 10px;
+}
+
+.Profile .container > .Header img
+{
+    width : 150px;
+    border-radius: 50%;
+}
+
+
+.Profile .container > .Header h3
+{
+    text-align: center;
+}
+
+
+/* ################ End User Profile ################ */
+
+

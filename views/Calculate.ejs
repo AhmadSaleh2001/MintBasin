@@ -1,0 +1,56 @@
+     <!-- Start Header -->
+     <%- include("./partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("./partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+    <div class="Calculate">
+        <div class="MyTitle">
+            <h2>احسب معدلك التراكمي</h2>
+        </div>
+        <div class="container">
+            <div class="NumberMaterials">
+                <h4>ادخل عدد المواد</h4>
+                <input type="number" id="NumberOfMaterial" />
+            </div>
+
+            <div class="Content">
+                
+            </div>
+            
+            <div class="Results">
+                <div class="Right">
+                    <div class="Top">
+                        <div>معدلك هو : <span class="AvgAnswer"></span></div>
+                        <div>عدد الساعات الفصلية : <span class="HoursAnswer"></span></div>
+                        <div>التقييم : <span class="FeedBack"></span></div>
+                    </div>
+                    <hr color="green" />
+                    <div class="Top">
+                        <div>معدلك التراكمي : <span class="AvgAnswerCum"></span></div>
+                        <div>عدد الساعات التراكمية : <span class="HoursAnswerCum"></span></div>
+                        <div>التقييم : <span class="FeedBackCum"></span></div>
+                    </div>
+                </div>
+
+                <div class="Left">
+                    <h3>اذا كان هذا اول فصل لك : </h3>
+                    <ul>
+                        <li>اترك خانة المعدل التراكمي <span style="color:yellow">0</span></li>
+                        <li>اترك خانة عدد الساعات التراكمي <span style="color:yellow">0</span></li>
+                        <li>عشان ترفع التراكمي مستقبلا جهز ونش <span style="color:yellow">4X4</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Start Footer -->
+    <%- include("./partials/Footer.ejs") %> 
+    <script src="../public/Js/Calculate.js"></script>
+    <!-- End Footer -->

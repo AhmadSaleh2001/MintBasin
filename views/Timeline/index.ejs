@@ -1,0 +1,114 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+    <div class="Timeline">
+        <div class="container">
+            <form action="/Timeline/Share" method="POST" class="MyForm" enctype="multipart/form-data">
+                <div>
+                    <h4>المحتوى</h4>
+                    <textarea name="Description" id="" cols="40" rows="5" required></textarea>
+                </div>
+
+                <div>
+                    <h4>الصورة(اختياري)</h4>
+                    <img src="" class="ImageToChange" alt="" style="width:200px" />
+                    <input type="file" name="Image" id="" class="ChangedInput" />
+                </div>
+                <% 
+                    if(User)
+                    {
+                        %>
+                            <input type="submit" value="نشر" name="" id="">
+                        <%
+                    }
+                    else
+                    {
+                        %>
+                            <input type="submit" value="نشر" name="" id="" disabled>
+                            <div class="NotLoggedIn">
+                                انت غير مسجل بالموقع لذلك لا يمكنك النشر
+                                <br />
+                                للتسجيل في الموقع من <a href="/User/SignIn">هنا</a>    
+                            </div>
+                        <%
+                    }
+                %> 
+            </form>
+             <div class="Posts">
+
+                <%
+                    Data.forEach(Item => {
+                        %>
+                            <div class="Item">
+                                <div class="Header">
+                                    <div>
+                                        <a href="/User/Profile/<%= Item.UserId %>">
+                                            <img src="/public/Uploads/Users/<%= Item.Picture %>" alt="">
+                                        </a>
+                                        <div>
+                                            <a href="/User/Profile/<%= Item.UserId %>">
+                                                <h4><%=Item.Username %></h4>
+                                            </a>
+                                            <h5>
+                                                <%
+                                                    var Date = Item.createdAt;
+                                                    var Year = Date.getFullYear();
+                                                    var Month = Date.getMonth() + 1;
+                                                    var Day = Date.getDate();
+                                                    var Hours = Date.getHours();
+                                                    var Minutes = Date.getMinutes();
+                                                    var State = Hours>=12?"PM":"AM";
+
+                                                    
+
+                                                    if(Hours>=12)
+                                                    {
+                                                        Hours-=12;
+                                                        if(!Hours)Hours = 12;
+                                                    }
+                                                    if(Month<10)Month = "0" + Month;
+                                                    if(Day<10)Day = "0" + Day;
+                                                    if(Hours<10)Hours = "0" + Hours;
+                                                    if(Minutes<10)Minutes = "0" + Minutes;
+                                                %>
+                                                <%= Day + "-" + Month + "-" + Year + " -- " + Hours + ":" + Minutes + " " + State %>
+                                            </h5>    
+                                        </div>
+                                    </div>
+                                    <%
+                                        if(User && (User.IsAdmin || User._id == Item.UserId))
+                                        {
+                                            %>
+                                            <div>
+                                                <a href="/Timeline/Update/<%=Item._id%>/<%=Item.UserId%>" class="fas fa-edit" style="color:#24a0ed"></a>
+                                                <a href="/Timeline/Delete/<%=Item._id%>/<%=Item.UserId%>"><i class="fas fa-trash" style="color:red"></i></a>
+                                            </div>
+                                            <%
+                                        }
+                                        
+                                        
+                                    %>
+                                </div>
+                                <div class="Content">
+                                    <p><%=Item.Description%></p>
+                                    <img src="/public/Uploads/Posts/<%= Item.Image%>" alt="">
+                                </div>
+                            </div>
+                        <%
+                    })
+
+                %>
+
+               
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("../partials/Footer.ejs") %> 
+    <script src="../../public/Js/Timeline.js"></script>

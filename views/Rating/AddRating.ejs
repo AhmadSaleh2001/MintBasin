@@ -1,0 +1,39 @@
+     <!-- Start Header -->
+     <%- include("../partials/Header.ejs") %> 
+     <!-- End Header -->
+
+    <!-- Start Navbar -->
+    <%- include("../partials/Navbar.ejs") %> 
+    <!-- Start Navbar -->
+
+     <div class="SignIn">
+        <div class="MyTitle">
+            <h2>اضافة تقييم</h2>
+        </div>
+        <div class="container">
+            <form action="/Rating/Add" method="POST">
+                <div class="Item">
+                    <h3>الاسم</h3>
+                    <input type="text" name="Name" id="" required>
+                </div>
+
+                <div class="Item">
+                    <h3>التقييم من 5</h3>
+                    <input type="number" name="Rating" id="" min="1" max="5" value="1" required>
+                </div>
+
+                <div class="Item">
+                    <h3>تحسينات على الموقع</h3>
+                    <textarea name="FeedBack" id="" cols="30" rows="10"></textarea>
+                </div>
+                <button>نشر</button>
+            </form>
+        </div>
+     </div>
+
+
+
+
+
+
+    <%- include("../partials/Footer.ejs") %> 
